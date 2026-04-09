@@ -45,13 +45,19 @@ export default function Navigation() {
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
+    if (!el) return;
+    setMenuOpen(false);
+
+    try {
       gsap.to(window, {
         scrollTo: { y: el, offsetY: 80 },
         duration: 1.2,
         ease: 'power2.inOut',
       });
-      setMenuOpen(false);
+    } catch {
+      // Fallback if GSAP ScrollTo fails
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   };
 
