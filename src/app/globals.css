@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== AP-Style Warm Neutral Palette ===== */
+  --color-warm-50: #faf9f7;
+  --color-warm-100: #f5f3f0;
+  --color-warm-200: #e8e5e1;
+  --color-warm-300: #d4d0cb;
+  --color-warm-400: #a8a29e;
+  --color-warm-500: #78716c;
+  --color-warm-600: #57534e;
+  --color-warm-700: #44403c;
+  --color-warm-800: #292524;
+  --color-warm-900: #1c1917;
+  --color-warm-950: #0c0a09;
+
+  /* ===== Brand Colors ===== */
+  --color-brand: #222222;
+  --color-brand-light: #555555;
+  --color-brand-muted: #999999;
+
+  /* ===== Surface ===== */
+  --color-surface-bg: #ffffff;
+  --color-surface-soft: #f5f3f0;
+  --color-surface-muted: #ece9e4;
+  --color-surface-dark: #222222;
+  --color-surface-border: #e0ddd8;
+
+  /* ===== Font ===== */
+  --font-sans: 'Pretendard Variable', 'Pretendard', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Noto Serif KR', 'Georgia', 'Times New Roman', serif;
+}
+
+/* ===== Base ===== */
+body {
+  background-color: var(--color-surface-bg);
+  color: var(--color-brand);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Scrollbar (subtle) ===== */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-warm-300); border-radius: 1.5px; }
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(34, 34, 34, 0.1);
+  color: #222222;
+}
+
+/* ===== Full Bleed ===== */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* ===== Marquee ===== */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== Split Text ===== */
+.split-line { overflow: hidden; display: block; }
+.split-word, .split-char { display: inline-block; will-change: transform, opacity; }
+
+/* ===== Image Fallback ===== */
+img[data-fallback] { background: linear-gradient(135deg, #f5f3f0, #e8e5e1); }
+
+/* ===== Serif Heading ===== */
+.heading-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* ===== Divider ===== */
+.section-divider {
+  width: 1px;
+  height: 60px;
+  background: var(--color-warm-300);
+  margin: 0 auto;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

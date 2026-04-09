@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --no-import-alias --yes)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.awwwards.com)",
+      "Bash(find /c/project-eun/src -type f \\\\\\(-name *.ts -o -name *.tsx -o -name *.css -o -name *.json \\\\\\))",
+      "Bash(find /c/project-eun/src -type f \\\\\\( -name \"*.ts\" -o -name \"*.tsx\" \\\\\\) -exec wc -l {} +)",
+      "WebFetch(domain:drinkmockly.com)",
+      "WebFetch(domain:www.kinncollective.co.uk)",
+      "WebFetch(domain:victoriagee.es)",
+      "WebFetch(domain:www.apgroup.com)"
+    ]
+  }
+}
