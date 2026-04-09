@@ -94,20 +94,31 @@ export default function Navigation() {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="relative text-[14px] font-medium tracking-wide transition-colors duration-200 pb-1"
+                  className="group relative text-[14px] font-medium tracking-wide pb-1"
                   style={{
                     color: isActive
                       ? (useWhite ? '#ffffff' : '#222222')
                       : (useWhite ? 'rgba(255,255,255,0.55)' : '#999999'),
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.color = useWhite ? '#ffffff' : '#222222';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.color = useWhite ? 'rgba(255,255,255,0.55)' : '#999999';
+                    }
                   }}
                 >
                   {link.label}
-                  {/* Active underline */}
+                  {/* Active / Hover underline */}
                   <span
-                    className="absolute bottom-0 left-0 right-0 h-px transition-opacity duration-200"
+                    className="absolute bottom-0 left-0 right-0 h-px transition-all duration-200 origin-left scale-x-0 group-hover:scale-x-100"
                     style={{
                       backgroundColor: useWhite ? '#ffffff' : '#222222',
-                      opacity: isActive ? 1 : 0,
+                      transform: isActive ? 'scaleX(1)' : undefined,
                     }}
                   />
                 </button>
